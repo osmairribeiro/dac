@@ -13,7 +13,7 @@ const connectAMQP = async () => {
 
         console.log(`AMQP CONNECTED: ${connection.connection.serverProperties.host} 🥳`);
 
-        const queueName = 'saga.autocadastro.customer-res';
+        const queueName = 'saga.autocadastro.customer-req';
 
         channel.consume(queueName, async (message) => {
           if (message !== null) {
