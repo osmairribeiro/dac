@@ -13,12 +13,13 @@ const connectAMQP = async () => {
 
         console.log(`AMQP CONNECTED: ${connection.connection.serverProperties.host} 🥳`);
 
-        const queueName = 'saga.autocadastro.customer-req';
+        const queueNameRead = 'saga.autocadastro.auth-req';
+        const queueNameWriter = 'saga.autocadastro.auth-res';
 
-        channel.consume(queueName, async (message) => {
+        channel.consume(queueNameRead, async (message) => {
           if (message !== null) {
             const data = JSON.parse(message.content.toString());
-            const { name, email, password, type } = data;
+            const { name, email, password } = data;
             const user = await User.create({
                 name,
                 email,                    
@@ -27,8 +28,10 @@ const connectAMQP = async () => {
             });
                 
             channel.ack(message);
+            channel.sendToQueue(queueNameWriter, message.content);
           }
         });
+
 
     } catch (error) {
         console.error(`ERROR: ${error.message}`);

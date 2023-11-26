@@ -4,7 +4,7 @@ const database = require("./config/database");
 const routes = require("./routes/index.routes");
 const connectAMQP = require("./config/rabbitmq");
 const app = express();
-const port = 3001
+const port = 3002
 
 app.use(express.json());
 
