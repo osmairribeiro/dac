@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Editar Gerente</h1>
+    <form id="formGerente">
+        <h2>Dados do Gerente</h2>
+        <div class="input-wrapper">
+            <div>
+                <p>
+                    <label for="nome">Nome:</label>
+                    <input id="nome" name="nome" placeholder="Nome" type="text" required minlength="2"/>
+                    <small>Digite o nome do gerente</small>
+                </p>
+                <p>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" placeholder="E-mail" type="email" required disabled/>
+                    <small>O email não pode ser editado</small>
+                </p>
+                <p>
+                    <label for="cpf">CPF:</label>
+                    <input id="cpf" name="cpf" placeholder="CPF" type="text" required minlength="11"/>
+                    <small>Digite o CPF do gerente</small>
+                </p>
+            </div>
+        </div>
+        <div class="button-wrapper">
+            <button type="button">Voltar</button>
+            <button type="submit">Atualizar</button>
+        </div>
+    </form>
+</div>
