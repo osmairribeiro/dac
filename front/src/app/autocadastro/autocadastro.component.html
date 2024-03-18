@@ -1,0 +1,91 @@
+<div class="container">
+    <h1>Autocadastro</h1>
+    <form id="formCliente">
+        <h2>Informações Pessoais</h2>
+        <div class="input-wrapper">
+            <div class="client-input">
+                <table cellspacing="0" class="table">
+                    <tr>
+                        <td colspan="2">
+                            <label for="nome">Nome:</label>
+                            <input id="nome" name="nome" placeholder="Nome" type="text" required minlength="2" />
+                            <small>Informe seu nome completo</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="email">E-mail:</label>
+                            <input id="email" name="email" placeholder="E-mail" type="email" required minlength="2" />
+                            <small>Informe seu e-mail</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="cpf">CPF:</label>
+                            <input id="cpf" name="cpf" placeholder="CPF" type="text" required minlength="11" />
+                            <small>Informe seu CPF</small>
+                        </td>
+                        <td>
+                            <label for="salario">Salário:</label>
+                            <input id="salario" name="salario" placeholder="Salário" type="text" required />
+                            <small>Informe seu salário</small>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>Endereço</h3>
+                <table cellspacing="0" class="table">
+                    <tr>
+                        <td colspan="2">
+                            <label for="tipo">Tipo:</label>
+                            <input id="tipo" name="tipo" placeholder="Tipo" type="text" required minlength="2" />
+                            <small>Informe o tipo do endereço</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="logradouro">Logradouro:</label>
+                            <input id="logradouro" name="logradouro" placeholder="Logradouro" type="text" required minlength="2" />
+                            <small>Informe o logradouro</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="numero">Número:</label>
+                            <input id="numero" name="numero" placeholder="Número" type="text" required pattern="\d*" />
+                            <small>Informe o número</small>
+                        </td>
+                        <td>
+                            <label for="complemento">Complemento:</label>
+                            <input id="complemento" name="complemento" placeholder="Complemento" type="text" />
+                            <small>Informe o complemento (se houver)</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label for="cep">CEP:</label>
+                            <input id="cep" name="cep" placeholder="CEP" type="text" required minlength="8" />
+                            <small>Informe o CEP</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="cidade">Cidade:</label>
+                            <input id="cidade" name="cidade" placeholder="Cidade" type="text" required minlength="2" />
+                            <small>Informe a cidade</small>
+                        </td>
+                        <td>
+                            <label for="estado">Estado:</label>
+                            <input id="estado" name="estado" placeholder="Estado" type="text" required minlength="2" />
+                            <small>Informe o estado</small>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="button-wrapper">
+            <button type="button">Voltar</button>
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+</div>
