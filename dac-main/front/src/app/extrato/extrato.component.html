@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <h1>Consulta de Extrato</h1>
+    <form (ngSubmit)="consultarExtrato()">
+      <div class="form-row">
+        <div class="col">
+          <label for="dataInicio">Data de Início:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="dataInicio"
+            name="dataInicio"
+            [(ngModel)]="dataInicio"
+          />
+        </div>
+        <div class="col">
+          <label for="dataFim">Data de Fim:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="dataFim"
+            name="dataFim"
+            [(ngModel)]="dataFim"
+          />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">
+        Consultar Extrato
+      </button>
+    </form>
+    
+  
+    <h2 class="mt-5">Extrato</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Data/Hora da Transação</th>
+          <th>Operação</th>
+          <th>Conta Origem</th>
+          <th>Conta Destino</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movimentacao of movimentacoes" [ngClass]="{'text-danger': isSaida(movimentacao), 'text-primary': isEntrada(movimentacao)}">
+          <td>{{ movimentacao.data_hora }}</td>
+          <td>{{ movimentacao.tipo }}</td>
+          <td>{{ movimentacao.id_conta_origem }}</td>
+          <td>{{ movimentacao.id_conta_destino }}</td>
+          <td>{{ formatarSaldo(movimentacao.valor) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Saldo Consolidado</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Saldo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aqui você pode adicionar os saldos consolidados usando um loop em sua linguagem de backend -->
+        <tr>
+          <td>{{ dataAtual }}</td>
+          <td>{{ formatarSaldo(saldoConta) }}</td>
+        </tr>
+        <!-- Adicione mais linhas de acordo com os dados consolidados -->
+      </tbody>
+    </table>
+  </div>

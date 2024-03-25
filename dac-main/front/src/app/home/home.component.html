@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bantads</title>
+       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        
+        <a class="navbar-brand" href="#">
+            <img src="assets/logobanco.png" alt="Logo Banco" style="height: 30px;"> BANTADS
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+    </nav>
+
+   
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="assets/cliente.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Acesso Cliente</h5>
+                        <p class="card-text">Clique aqui se você é ou deseja ser um cliente.</p>
+                        <a href="/cliente" class="btn btn-primary">Ir para a página de clientes</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="assets/gerente.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Acesso Gerente</h5>
+                        <p class="card-text">CLique aqui se você é um gerente.</p>
+                        <a href="/gerente" class="btn btn-primary">Ir para a página do Gerente</a>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="assets/admin.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Acesso Administrador</h5>
+                        <p class="card-text">Clique aqui se você é administrador.</p>
+                        <a routerLink="/administrador" class="btn btn-primary">Area AdministradorX</a>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+</body>
+</html>
