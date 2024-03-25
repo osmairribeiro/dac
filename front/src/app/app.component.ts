@@ -22,7 +22,10 @@ import { GerenteComponent } from './gerente/home/gerente.component';
   styleUrl: './app.component.css'
 })
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff91764b54c48e4c57a7cd3ab4abc5c547bac29c
 export class AppComponent {
   title = 'bantads';
 }
