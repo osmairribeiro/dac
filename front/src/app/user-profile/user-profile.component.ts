@@ -1,15 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-<<<<<<< HEAD
-import { AuthService } from "../../services/auth.service";
-import { ClientService } from "../../services/client.service";
-import { Client } from "../../shared/models/client.model";
-import { BankAccountService } from "../../services/bank-account.service";
-=======
 //import { AuthService } from "../../services/auth.service";
 //import { ClientService } from "../../services/client.service";
-//import { Client } from "../../shared/models/client.model";
+//import { Client } from "../shared/models/client.model";
 //import { BankAccountService } from "../../services/bank-account.service";
->>>>>>> f11a7596b8d2d751e44a38ad9dc641ca5e8145fe
 
 @Component({
   selector: "app-user-profile",
@@ -18,15 +11,9 @@ import { BankAccountService } from "../../services/bank-account.service";
 })
 export class UserProfileComponent implements OnInit {
   constructor(
-<<<<<<< HEAD
-    private authService: AuthService,
-    private clientService: ClientService,
-    private bankAccountService: BankAccountService
-=======
     //private authService: AuthService,
     //private clientService: ClientService,
     //private bankAccountService: BankAccountService
->>>>>>> f11a7596b8d2d751e44a38ad9dc641ca5e8145fe
   ) {}
 
   name: string = "";
@@ -44,8 +31,8 @@ export class UserProfileComponent implements OnInit {
   gerente: string = "";
 
   ngOnInit() {
-    this.getConta();
-    this.carregarDados();
+    //this.getConta();
+    //this.carregarDados();
   }
 
   private parseSalaryToNumber(salary: string): number {
@@ -53,15 +40,10 @@ export class UserProfileComponent implements OnInit {
     const sanitizedSalary = salary?.replace(numberRegex, ""); // Remove caracteres não numéricos
     return parseFloat(sanitizedSalary) || 0; // Converte para número ou retorna 0 se for inválido
   }
-
+/*
   carregarDados() {
-<<<<<<< HEAD
     const idCliente = this.authService.getUserIdLogged();
     this.clientService.getById(idCliente).subscribe((result) => {
-=======
-    //const idCliente = this.authService.getUserIdLogged();
-    /*this.clientService.getById(idCliente).subscribe((result) => {
->>>>>>> f11a7596b8d2d751e44a38ad9dc641ca5e8145fe
       this.name = result.name;
       this.email = result.email;
       this.cellphone = result.cellphone;
@@ -73,7 +55,6 @@ export class UserProfileComponent implements OnInit {
       this.cep = result.address.cep;
       const salaryAsNumber = this.parseSalaryToNumber(this.salary);
       this.limite = salaryAsNumber / 2;
-<<<<<<< HEAD
     });
   }
 
@@ -82,16 +63,6 @@ export class UserProfileComponent implements OnInit {
 
     if (idClienteOrigem) {
       this.bankAccountService.getAccountByLoggedUser(idClienteOrigem).subscribe(
-=======
-    });*/
-  }
-
-  getConta() {
-    /*const idClienteOrigem = this.authService.getUserIdLogged();
-
-    if (idClienteOrigem) {
-      /*this.bankAccountService.getAccountByLoggedUser(idClienteOrigem).subscribe(
->>>>>>> f11a7596b8d2d751e44a38ad9dc641ca5e8145fe
         (conta) => {
           if (conta) {
             this.conta = conta[0].accountNumber;
@@ -107,19 +78,11 @@ export class UserProfileComponent implements OnInit {
           console.error("Erro ao obter o numero da conta:", error);
         }
       );
-<<<<<<< HEAD
     }
   }
 
   saveChanges() {
     const updatedClient: Client = {
-=======
-    }*/
-  }
-
-  saveChanges() {
-    /*const updatedClient: Client = {
->>>>>>> f11a7596b8d2d751e44a38ad9dc641ca5e8145fe
       id: this.authService.getUserIdLogged(),
       name: this.name,
       cpf: this.cpf,
@@ -134,11 +97,7 @@ export class UserProfileComponent implements OnInit {
       },
     };
 
-<<<<<<< HEAD
     this.clientService.update(updatedClient).subscribe(
-=======
-    /*this.clientService.update(updatedClient).subscribe(
->>>>>>> f11a7596b8d2d751e44a38ad9dc641ca5e8145fe
       (result) => {
         console.log("Cliente atualizado:", result);
       },
@@ -146,10 +105,6 @@ export class UserProfileComponent implements OnInit {
         console.error("Erro ao atualizar cliente:", error);
         // Lógica para lidar com erros
       }
-<<<<<<< HEAD
     );
-=======
-    );*/
->>>>>>> f11a7596b8d2d751e44a38ad9dc641ca5e8145fe
-  }
+  }*/
 }

@@ -1,6 +1,4 @@
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GerenteComponent } from './gerente.component';
 
 describe('GerenteComponent', () => {
