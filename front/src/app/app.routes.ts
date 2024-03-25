@@ -2,13 +2,10 @@ import { Routes } from '@angular/router';
 import { ClienteComponent } from './cliente/cliente.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-import { GerenteComponent } from './gerente/home/gerente.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
-import { ListarMelhoresComponent } from './gerente/listarmelhores/listarmelhores.component';
-<<<<<<< HEAD
-=======
-import { ListarTodosComponent } from './gerente/listartodos/listartodos.component';
->>>>>>> ff91764b54c48e4c57a7cd3ab4abc5c547bac29c
+import { GerenteComponent } from './gerente/gerente.component';
+import { ListarMelhoresComponent } from './listarmelhores/listarmelhores.component';
+import { ListarTodosComponent } from './listartodos/listartodos.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -17,8 +14,5 @@ export const routes: Routes = [
     { path: 'gerente', component: GerenteComponent },
     { path: 'autocadastro', component: AutocadastroComponent },
     { path: 'listarmelhores', component: ListarMelhoresComponent },
-<<<<<<< HEAD
-=======
-    { path: 'listartodos', component: ListarTodosComponent },
->>>>>>> ff91764b54c48e4c57a7cd3ab4abc5c547bac29c
+    { path: 'listartodos', component: ListarTodosComponent }
 ];

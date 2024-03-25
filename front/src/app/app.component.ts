@@ -4,8 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
-import { GerenteComponent } from './gerente/home/gerente.component';
-
+import { GerenteComponent } from './gerente/gerente.component';
 
 @Component({
   selector: 'app-root',
@@ -22,10 +21,6 @@ import { GerenteComponent } from './gerente/home/gerente.component';
   styleUrl: './app.component.css'
 })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ff91764b54c48e4c57a7cd3ab4abc5c547bac29c
 export class AppComponent {
   title = 'bantads';
 }
