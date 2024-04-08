@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { environment as env } from "src/environments/environment";
+import { environment as env } from "../../environments/environment";
 import { MODEL } from "../shared";
 
 @Injectable({
