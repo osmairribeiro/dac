@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Painel de Controle - Gerente</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>CPF</th>
+              <th>Nome</th>
+              <th>Salário</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of pedidos">
+              <td>{{ pedido.cpf }}</td>
+              <td>{{ pedido.nome }}</td>
+              <td>{{ pedido.salario }}</td>
+              <td>
+                <button class="btn btn-success">Aprovar</button>
+                <button class="btn btn-danger">Recusar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

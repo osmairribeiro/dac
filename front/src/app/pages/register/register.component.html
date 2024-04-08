@@ -1,0 +1,350 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-3">
+      <div class="row justify-content-center align-items-center">
+        <img
+          alt="logo"
+          width="75px"
+          height="75px"
+          src="assets/img/brand/banking.png"
+        />
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-white">Sistema Internet Banking BANTADS</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg
+      x="0"
+      y="0"
+      viewBox="0 0 2560 100"
+      preserveAspectRatio="none"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-9 col-md-9">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4">
+            <p>Autocadastro</p>
+          </div>
+          <form role="form" [formGroup]="clientForm" (submit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-hat-3"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Nome"
+                      type="text"
+                      formControlName="name"
+                      required
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      clientForm.controls['name'].invalid &&
+                      (clientForm.controls['name'].dirty ||
+                        clientForm.controls['name'].touched)
+                    "
+                  >
+                    <div *ngIf="clientForm.controls['name'].errors.required">
+                      <p class="text-danger">Nome é obrigatório</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-badge"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="CPF"
+                      type="number"
+                      formControlName="cpf"
+                      required
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      clientForm.controls['cpf'].invalid &&
+                      (clientForm.controls['cpf'].dirty ||
+                        clientForm.controls['cpf'].touched)
+                    "
+                  >
+                    <div *ngIf="clientForm.controls['cpf'].errors.required">
+                      <p class="text-danger">CPF é obrigatório</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-email-83"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Email"
+                      type="email"
+                      formControlName="email"
+                      required
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      clientForm.controls['email'].invalid &&
+                      (clientForm.controls['email'].dirty ||
+                        clientForm.controls['email'].touched)
+                    "
+                  >
+                    <div *ngIf="clientForm.controls['email'].errors.required">
+                      <p class="text-danger">Email é obrigatório</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-money-coins"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Salário"
+                      type="number"
+                      formControlName="salary"
+                      required
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      clientForm.controls['salary'].invalid &&
+                      (clientForm.controls['salary'].dirty ||
+                        clientForm.controls['salary'].touched)
+                    "
+                  >
+                    <div *ngIf="clientForm.controls['salary'].errors.required">
+                      <p class="text-danger">Salário é obrigatório</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-mobile-button"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Telefone/Celular"
+                      type="number"
+                      formControlName="cellphone"
+                      required
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      clientForm.controls['cellphone'].invalid &&
+                      (clientForm.controls['cellphone'].dirty ||
+                        clientForm.controls['cellphone'].touched)
+                    "
+                  >
+                    <div
+                      *ngIf="clientForm.controls['cellphone'].errors.required"
+                    >
+                      <p class="text-danger">Telefone é obrigatório</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-pin-3"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="CEP"
+                      type="number"
+                      formControlName="cep"
+                      (blur)="onBlur($event)"
+                      required
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      clientForm.controls['cep'].invalid &&
+                      (clientForm.controls['cep'].dirty ||
+                        clientForm.controls['cep'].touched)
+                    "
+                  >
+                    <div *ngIf="clientForm.controls['cep'].errors.required">
+                      <p class="text-danger">CEP é obrigatório</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-pin-3"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="UF"
+                      type="text"
+                      formControlName="uf"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-pin-3"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Cidade"
+                      type="text"
+                      formControlName="localidade"
+                      readonly
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-pin-3"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Bairro"
+                      type="text"
+                      formControlName="bairro"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-pin-3"></i
+                      ></span>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Logradouro"
+                      type="text"
+                      formControlName="logradouro"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="ni ni-pin-3"></i
+                  ></span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Complemento"
+                  type="text"
+                  formControlName="complemento"
+                />
+              </div>
+            </div>
+
+            <div class="row my-4">
+              <div class="col-12">
+                <div
+                  class="custom-control custom-control-alternative custom-checkbox"
+                >
+                  <input
+                    class="custom-control-input"
+                    id="customCheckRegister"
+                    type="checkbox"
+                  />
+                  <label class="custom-control-label" for="customCheckRegister">
+                    <span class="text-muted"
+                      >Li aceito os <a href="#!">Temos de Privacidade</a></span
+                    >
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mt-4">
+                Criar conta
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12 text-center" style="cursor: pointer">
+          <a class="text-light" (click)="handleNavigate('/login')"
+            ><small>Já tem uma conta? Ir para Login</small></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
