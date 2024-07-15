@@ -1,0 +1,115 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-3">
+      <div class="row justify-content-center align-items-center">
+        <img
+          alt="logo"
+          width="75px"
+          height="75px"
+          src="assets/img/brand/banking.png"
+        />
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-white">Sistema Internet Banking BANTADS</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg
+      x="0"
+      y="0"
+      viewBox="0 0 2560 100"
+      preserveAspectRatio="none"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4">
+            <p>Login</p>
+          </div>
+          <form role="form" [formGroup]="loginForm" (submit)="onSubmit()">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="ni ni-email-83"></i
+                  ></span>
+                </div>
+                <input
+                  class="form-control"
+                  formControlName="email"
+                  placeholder="Email"
+                  type="email"
+                  required
+                />
+              </div>
+              <div
+                *ngIf="
+                  loginForm.controls['email'].invalid &&
+                  (loginForm.controls['email'].dirty ||
+                    loginForm.controls['email'].touched)
+                "
+              >
+                <div *ngIf="loginForm.controls['email'].errors.required">
+                  <p class="text-danger">Email é obrigatório</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="ni ni-lock-circle-open"></i
+                  ></span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Senha"
+                  type="password"
+                  formControlName="password"
+                  required
+                />
+              </div>
+              <div
+                *ngIf="
+                  loginForm.controls['password'].invalid &&
+                  (loginForm.controls['password'].dirty ||
+                    loginForm.controls['password'].touched)
+                "
+              >
+                <div *ngIf="loginForm.controls['password'].errors.required">
+                  <p class="text-danger">Senha é obrigatório</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary my-4">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12 text-center">
+          <a
+          routerLinkActive="active"
+          [routerLink]="['/register']"
+            class="text-light"
+            style="cursor: pointer"
+            ><small>Criar uma conta no sistema</small></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

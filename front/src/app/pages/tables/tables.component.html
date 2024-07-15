@@ -1,0 +1,48 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Cadastros sob aprovação</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">CPF</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Salário</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of filteredClients">
+                <td>{{ client?.cpf }}</td>
+                <td>{{ client?.name }}</td>
+                <td>{{ client?.salary || 'N/A' }}</td>
+                <td>{{ client?.status || 'N/A' }}</td>
+                <td class="text-right">
+                  <button class="btn btn-success btn-sm" (click)="aprovarCliente(client)">Aprovar</button>
+                  <button class="btn btn-danger btn-sm" (click)="recusarCliente(client)">Recusar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer py-4">
+          <nav aria-label="...">
+            <ul class="pagination justify-content-end mb-0">
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
