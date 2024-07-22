@@ -1,19 +1,19 @@
 import { MODEL } from "..";
 
 export class Client extends MODEL.User {
-    constructor(
-        public id?: string,
-        public name?: string,
-        public cpf?: string,
-        public email?: string,
-        public password?: string,
-        public cellphone?: string,
-        public type?: string,
-        public status?: string,
-        public manager?: string,
-        public salary?: string,
-        public address?: MODEL.Address
-    ) {
-        super(id, name, cpf, email, password, cellphone, type);
-    }
+  constructor(
+    public override id?: string,
+    public override name?: string,
+    public override cpf?: string,
+    public override email?: string,
+    public override password?: string,
+    public override cellphone?: string,
+    public override type?: string,
+    public status?: string,
+    public manager?: string,
+    public salary?: string,
+    public address?: MODEL.Address
+  ) {
+    super(id, name, cpf, email, password, cellphone, type);
+  }
 }
