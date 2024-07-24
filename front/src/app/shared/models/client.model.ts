@@ -1,6 +1,8 @@
 import { MODEL } from "..";
+import { User } from "./user.model";
+import { Address } from "./address.model";
 
-export class Client extends MODEL.User {
+export class Client extends User {
   constructor(
     public override id?: string,
     public override name?: string,

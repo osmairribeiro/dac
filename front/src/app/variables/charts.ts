@@ -3,120 +3,123 @@ import { Chart, registerables, TooltipItem, ChartData, BarElement } from 'chart.
 // Registre os componentes necessários
 Chart.register(...registerables, BarElement);
 
-//
-// Chart extension for making the bars rounded
-// Code from: https://codepen.io/jedtrow/full/ygRYgo
-//
-
 class CustomBarElement extends BarElement {
   draw() {
     const ctx = (this as any).chart.ctx; // Acessar o contexto do gráfico de forma correta
-    // const { x, y, base, width, height, borderSkipped, borderWidth, backgroundColor, borderColor } = this.getProps([
-    //   'x', 'y', 'base', 'width', 'height', 'borderSkipped', 'borderWidth', 'backgroundColor', 'borderColor'
-    // ]);
+    const vm = this as any; // Criar um atalho para this
 
-    // let left = x as number;
-    // let right = x as number;
-    // let top = y as number;
-    // let bottom = base as number;
-    // let signX, signY, radius;
-    // const cornerRadius = 6;
+    const x = vm.x;
+    const y = vm.y;
+    const base = vm.base;
+    const width = vm.width;
+    const height = vm.height;
+    const borderSkipped = vm.options.borderSkipped;
+    const borderWidth = vm.options.borderWidth;
+    const backgroundColor = vm.options.backgroundColor;
+    const borderColor = vm.options.borderColor;
 
-    // const horizontal = (this as any).horizontal; // Verificar a orientação de forma correta
+    let left = x as number;
+    let right = x as number;
+    let top = y as number;
+    let bottom = base as number;
+    let signX, signY, radius;
+    const cornerRadius = 6;
 
-    // if (!horizontal) {
-    //   left = (x as number) - (width as number) / 2;
-    //   right = (x as number) + (width as number) / 2;
-    //   top = y as number;
-    //   bottom = base as number;
-    //   signX = 1;
-    //   signY = bottom > top ? 1 : -1;
-    // } else {
-    //   left = base as number;
-    //   right = x as number;
-    //   top = (y as number) - (height as number) / 2;
-    //   bottom = (y as number) + (height as number) / 2;
-    //   signX = right > left ? 1 : -1;
-    //   signY = 1;
-    // }
+    const horizontal = (this as any).horizontal; // Verificar a orientação de forma correta
 
-    // if (borderWidth) {
-    //   const barSize = Math.min(Math.abs((left as number) - (right as number)), Math.abs((top as number) - (bottom as number)));
-    //   const adjustedBorderWidth = Math.min(borderWidth as number, barSize);
-    //   const halfStroke = adjustedBorderWidth / 2;
+    if (!horizontal) {
+      left = (x as number) - (width as number) / 2;
+      right = (x as number) + (width as number) / 2;
+      top = y as number;
+      bottom = base as number;
+      signX = 1;
+      signY = bottom > top ? 1 : -1;
+    } else {
+      left = base as number;
+      right = x as number;
+      top = (y as number) - (height as number) / 2;
+      bottom = (y as number) + (height as number) / 2;
+      signX = right > left ? 1 : -1;
+      signY = 1;
+    }
 
-    //   const borderLeft = (left as number) + ((borderSkipped as string) !== 'left' ? halfStroke * signX : 0);
-    //   const borderRight = (right as number) + ((borderSkipped as string) !== 'right' ? -halfStroke * signX : 0);
-    //   const borderTop = (top as number) + ((borderSkipped as string) !== 'top' ? halfStroke * signY : 0);
-    //   const borderBottom = (bottom as number) + ((borderSkipped as string) !== 'bottom' ? -halfStroke * signY : 0);
+    if (borderWidth) {
+      const barSize = Math.min(Math.abs((left as number) - (right as number)), Math.abs((top as number) - (bottom as number)));
+      const adjustedBorderWidth = Math.min(borderWidth as number, barSize);
+      const halfStroke = adjustedBorderWidth / 2;
 
-    //   if (borderLeft !== borderRight) {
-    //     top = borderTop;
-    //     bottom = borderBottom;
-    //   }
-    //   if (borderTop !== borderBottom) {
-    //     left = borderLeft;
-    //     right = borderRight;
-    //   }
-    // }
+      const borderLeft = (left as number) + ((borderSkipped as string) !== 'left' ? halfStroke * signX : 0);
+      const borderRight = (right as number) + ((borderSkipped as string) !== 'right' ? -halfStroke * signX : 0);
+      const borderTop = (top as number) + ((borderSkipped as string) !== 'top' ? halfStroke * signY : 0);
+      const borderBottom = (bottom as number) + ((borderSkipped as string) !== 'bottom' ? -halfStroke * signY : 0);
 
-    // ctx.beginPath();
-    // ctx.fillStyle = backgroundColor as string;
-    // ctx.strokeStyle = borderColor as string;
-    // ctx.lineWidth = borderWidth as number;
+      if (borderLeft !== borderRight) {
+        top = borderTop;
+        bottom = borderBottom;
+      }
+      if (borderTop !== borderBottom) {
+        left = borderLeft;
+        right = borderRight;
+      }
+    }
 
-    // const corners = [
-    //   [left, bottom],
-    //   [left, top],
-    //   [right, top],
-    //   [right, bottom]
-    // ];
+    ctx.beginPath();
+    ctx.fillStyle = backgroundColor as string;
+    ctx.strokeStyle = borderColor as string;
+    ctx.lineWidth = borderWidth as number;
 
-    // const borders = ['bottom', 'left', 'top', 'right'];
-    // let startCorner = borders.indexOf(borderSkipped as string);
-    // if (startCorner === -1) {
-    //   startCorner = 0;
-    // }
+    const corners = [
+      [left, bottom],
+      [left, top],
+      [right, top],
+      [right, bottom]
+    ];
 
-    // function cornerAt(index: number) {
-    //   return corners[(startCorner + index) % 4];
-    // }
+    const borders = ['bottom', 'left', 'top', 'right'];
+    let startCorner = borders.indexOf(borderSkipped as string);
+    if (startCorner === -1) {
+      startCorner = 0;
+    }
 
-    // let corner = cornerAt(0);
-    // ctx.moveTo(corner[0], corner[1]);
+    function cornerAt(index: number) {
+      return corners[(startCorner + index) % 4];
+    }
 
-    // for (let i = 1; i < 4; i++) {
-    //   corner = cornerAt(i);
-    //   const nextCornerId = (i + 1) % 4;
+    let corner = cornerAt(0);
+    ctx.moveTo(corner[0], corner[1]);
 
-    //   const width = corners[2][0] - corners[1][0];
-    //   const height = corners[0][1] - corners[1][1];
-    //   const x = corners[1][0];
-    //   const y = corners[1][1];
-    //   radius = cornerRadius;
+    for (let i = 1; i < 4; i++) {
+      corner = cornerAt(i);
+      const nextCornerId = (i + 1) % 4;
 
-    //   if (radius > height / 2) {
-    //     radius = height / 2;
-    //   }
-    //   if (radius > width / 2) {
-    //     radius = width / 2;
-    //   }
+      const width = corners[2][0] - corners[1][0];
+      const height = corners[0][1] - corners[1][1];
+      const x = corners[1][0];
+      const y = corners[1][1];
+      radius = cornerRadius;
 
-    //   ctx.moveTo(x + radius, y);
-    //   ctx.lineTo(x + width - radius, y);
-    //   ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-    //   ctx.lineTo(x + width, y + height - radius);
-    //   ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-    //   ctx.lineTo(x + radius, y + height);
-    //   ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-    //   ctx.lineTo(x, y + radius);
-    //   ctx.quadraticCurveTo(x, y, x + radius, y);
-    // }
+      if (radius > height / 2) {
+        radius = height / 2;
+      }
+      if (radius > width / 2) {
+        radius = width / 2;
+      }
 
-    // ctx.fill();
-    // if (borderWidth) {
-    //   ctx.stroke();
-    // }
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+    }
+
+    ctx.fill();
+    if (borderWidth) {
+      ctx.stroke();
+    }
   }
 }
 
